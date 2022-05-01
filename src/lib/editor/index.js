@@ -89,13 +89,15 @@ const withLayout = (editor, value) => {
 };
 
 const BlogEditor = ({
-  saveMessage = "saving...",
+  saveMessage = "Sparar...",
   onSave,
   header = "Write your story",
   loading,
   initialContent,
 }) => {
+  console.log("🚀 ~ file: index.js ~ line 98 ~ initialContent", initialContent);
   const [value, setValue] = useState(initialValue);
+  console.log("🚀 ~ file: index.js ~ line 100 ~ value", value);
   const editor = useMemo(
     () => withLayout(withHistory(withReact(createEditor()))),
     []
@@ -137,7 +139,9 @@ const BlogEditor = ({
     }
   };
 
+  console.log("🚀 ~ file: index.js ~ line 141 ~ value", value);
   editor.children = value;
+  console.log("🚀 ~ file: index.js ~ line 141 ~ editor", editor);
 
   return (
     <div className="slate-container">
